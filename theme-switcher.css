@@ -2,81 +2,15 @@ body {
   box-sizing: border-box;
 }
 
-.theme-switcher {
-  position: fixed;
-}
-.theme-switcher .content-switcher {
-  /*width: $tsWidth;
-  height: $tsHeight;
-  border-radius: calc($tsHeight / 2);
-  position: relative;
-  overflow: hidden;*/
-}
+/*
+$tsWidth: 100px;
+$tsHeight: 50px;
+$tsCircleSize: 18px;
+$tsCirclePosition: calc($tsWidth / 2 - $tsCircleSize);
+$themeTransition: 1s;
+*/
 .theme-switcher .content-switcher > div {
-  position: absolute;
+  /*position: absolute;
   height: 100%;
-  width: 100%;
-}
-.theme-switcher .content-switcher > div.day {
-  background-image: url("./bg1.jpg");
-  background-size: contain;
-  -webkit-clip-path: circle(18px at 32px 50%);
-          clip-path: circle(18px at 32px 50%);
-  transition: 0.5s cubic-bezier(0, 1, 0, 1);
-}
-.theme-switcher .content-switcher > div.night {
-  background-image: url("./bg2.jpg");
-  background-size: contain;
-  transition: 0.5s cubic-bezier(0, 1, 0, 1);
-}
-.theme-switcher .content-switcher.theme_day_1 .day {
-  transition: 0.5s cubic-bezier(1, 0, 1, 0);
-  -webkit-clip-path: circle(1000px at -950px 50%);
-          clip-path: circle(1000px at -950px 50%);
-}
-.theme-switcher .content-switcher.theme_day_2 .day {
-  transition: 0.5s cubic-bezier(1, 0, 1, 0);
-  -webkit-clip-path: circle(1000px at -950px 50%);
-          clip-path: circle(1000px at -950px 50%);
-}
-.theme-switcher .content-switcher.theme_day_2 .night {
-  transition: 0.5s cubic-bezier(1, 0, 1, 0);
-  -webkit-clip-path: circle(1000px at 1050px 50%);
-          clip-path: circle(1000px at 1050px 50%);
-}
-.theme-switcher .content-switcher.theme_day .day {
-  transition: 0.5s cubic-bezier(0, 1, 0, 1);
-  z-index: 900;
-  -webkit-clip-path: circle(1000px at -882px 50%);
-          clip-path: circle(1000px at -882px 50%);
-}
-.theme-switcher .content-switcher.theme_day .night {
-  transition: 0.5s cubic-bezier(0, 1, 0, 1);
-  z-index: 1000;
-  -webkit-clip-path: circle(18px at 68px 50%);
-          clip-path: circle(18px at 68px 50%);
-}
-.theme-switcher .content-switcher.theme_day_back-1 .day {
-  transition: 0s;
-  z-index: 900;
-  -webkit-clip-path: circle(1000px at -882px 50%);
-          clip-path: circle(1000px at -882px 50%);
-}
-.theme-switcher .content-switcher.theme_day_back-1 .night {
-  transition: 0.5s cubic-bezier(1, 0, 1, 0);
-  -webkit-clip-path: circle(1000px at 1050px 50%);
-          clip-path: circle(1000px at 1050px 50%);
-  z-index: 1000;
-}
-.theme-switcher .content-switcher.theme_day_back-2 .day {
-  transition: 0s;
-  z-index: 1000;
-  -webkit-clip-path: circle(1000px at -950px 50%);
-          clip-path: circle(1000px at -950px 50%);
-}
-.theme-switcher .content-switcher.theme_day_back-2 .night {
-  transition: 0s;
-  -webkit-clip-path: circle(1000px at 1050px 50%);
-          clip-path: circle(1000px at 1050px 50%);
-  z-index: 900;
+  width: 100%;*/
 }/*# sourceMappingURL=theme-switcher.css.map */
