@@ -24,7 +24,7 @@ $themeTransition: 1s;
         width: $tsWidth;
         height: $tsHeight;
         border: 1px solid blue;
-        background-color: #555;
+        background-color: #444;
         border-radius: 50px;
         position: relative;
 
@@ -32,18 +32,20 @@ $themeTransition: 1s;
             position: absolute;
             height: 100%;
             width: 100%;
-            //transition: all $themeTransition ;
 
             &.day {
                 background-image: url('./bg1.jpg');
                 background-size: contain;
                 clip-path: circle($tsCircleSize at $tsCirclePosition 50%);
-                //transition: cubic-bezier(1,0,1,.63);
+                transition: .5s cubic-bezier(0,1,0,1);
             }
 
             &.night {
                 background-image: url('./bg2.jpg');
+                //background-color: blue;
                 background-size: contain;
+                transition: .5s cubic-bezier(0,1,0,1);
+
             }
             
         }
@@ -52,7 +54,6 @@ $themeTransition: 1s;
         &.theme_day_1 {
             & .day {
                 transition: .5s cubic-bezier(1,0,1,0);
-                //transition: .5s;
                 clip-path: circle(calc($tsWidth * 10)  at calc( $tsCirclePosition - calc($tsWidth * 10 - $tsCircleSize) ) 50%);
             }
         }
@@ -60,34 +61,56 @@ $themeTransition: 1s;
         &.theme_day_2 {
             & .day {
                 transition: .5s cubic-bezier(1,0,1,0);
-                display: block;
-                //transition: 0s;
-                //z-index: 1000;
                 clip-path: circle(calc($tsWidth * 10)  at calc( $tsCirclePosition - calc($tsWidth * 10 - $tsCircleSize) ) 50%);
             }
             
             & .night {
-                display: block;
-                //transition: 0s;
                 transition: .5s cubic-bezier(1,0,1,0);
                 clip-path: circle(calc($tsWidth * 10)  at calc( $tsCirclePosition + $tsCircleSize + $tsWidth * 10) 50%);
-                //z-index: 900;
             }
         }
 
         &.theme_day {
             & .day {
-                //display: block;
-                transition: .5s;
+                transition: .5s cubic-bezier(0,1,0,1);
                 z-index: 900;
-                clip-path: circle(calc($tsWidth * 10)  at calc( $tsCirclePosition - calc($tsWidth * 10 - $tsCircleSize) + 70px) 50%);
+                clip-path: circle(calc($tsWidth * 10)  at calc($tsCircleSize - $tsWidth * 9) 50%);
             }
             
             & .night {
-                //display: block;
-                transition: .5s;
+                transition: .5s cubic-bezier(0,1,0,1);
                 z-index: 1000;
                 clip-path: circle($tsCircleSize at calc($tsCirclePosition + $tsCircleSize * 2) 50%);
+            }
+        }
+
+
+        &.theme_day_back-1 {
+            & .day {
+                transition: 0s;
+                z-index: 900;
+                clip-path: circle(calc($tsWidth * 10)  at calc($tsCircleSize - $tsWidth * 9) 50%);
+            }
+            
+            & .night {
+                transition: .5s cubic-bezier(1,0,1,0);
+                clip-path: circle(calc($tsWidth * 10)  at calc( $tsCirclePosition + $tsCircleSize + $tsWidth * 10) 50%);
+                z-index: 1000;
+            }
+        }
+
+        
+        &.theme_day_back-2 {
+            & .day {
+                transition: 0s;
+                z-index: 1000;
+                clip-path: circle(calc($tsWidth * 10)  at calc( $tsCirclePosition - calc($tsWidth * 10 - $tsCircleSize) ) 50%);
+            }
+            
+            & .night {
+                transition: 0s;
+                clip-path: circle(calc($tsWidth * 10)  at calc( $tsCirclePosition + $tsCircleSize + $tsWidth * 10) 50%);
+                z-index: 900;
             }
         }
 
