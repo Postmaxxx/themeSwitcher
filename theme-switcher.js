@@ -3,9 +3,9 @@ const _day = _themeSwitcher.querySelector(".day");
 const _night = _themeSwitcher.querySelector(".night");
 const _contentSwitcher = _themeSwitcher.querySelector(".content-switcher");
 
-let theme = _contentSwitcher.classList.contains('night') ? 'night' : 'day'
+let theme = _contentSwitcher.classList.contains('theme_day') ? 'day' : 'night'
 
-
+/*
 const timeLine = {
     day: [
         {
@@ -23,68 +23,74 @@ const timeLine = {
     ]
 }
 
+*/
+const toDay = () => {
 
-const toNigth = () => {
-
-    
     new Promise((resolve) => {
         setTimeout(() => {
-            _contentSwitcher.classList.add('day_1')
+            _contentSwitcher.classList.add('theme_day_1')
             resolve();
-        }, 0);
+        }, 10);
     })
     .then(() => {
         return(new Promise((resolve) => {
             setTimeout(() => {
-                _contentSwitcher.classList.remove('day_1')
-                _contentSwitcher.classList.add('day_2')
+                //_contentSwitcher.classList.remove('theme_day_1')
+                _contentSwitcher.classList.add('theme_day_2')
                 resolve();
             }, 500);
     }))})
     .then(() => {
         return(new Promise((resolve) => {
             setTimeout(() => {
-                _contentSwitcher.classList.remove('day_2')
-                _contentSwitcher.classList.add('day_3')
+                //_contentSwitcher.classList.remove('theme_day_2')
+                _contentSwitcher.classList.add('theme_day')
                 resolve();
-            }, 1);
+            }, 30);
     }))})
-
 
 }
 
 
-const changeTheme = e => {
-    if (theme === "day") {
-        toNigth();
-    
 
+const toNight = () => {
 
-/*
-    classSwitcher(timeLine.day[0].duration, timeLine.day[0].class)
-    .then(() => classSwitcher(timeLine.day[1].timeLine.day[1].class))
-    .then(() => classSwitcher(timeLine.day[2].timeLine.day[2].class));
-      
-    function classSwitcher(delay, newClass) {
-      return new Promise((resolve) => {
+    new Promise((resolve) => {
         setTimeout(() => {
-            _contentSwitcher
+            _contentSwitcher.classList.remove('theme_day')
+            _contentSwitcher.classList.add('theme_day_2')
+            resolve();
+        }, 0);
+    })
+    .then(() => {
+        return(new Promise((resolve) => {
+            setTimeout(() => {
+                _contentSwitcher.classList.remove('theme_day_2')
+                _contentSwitcher.classList.add('theme_day_1')
+                resolve();
+            }, 2000);
+    }))})
+    .then(() => {
+        return(new Promise((resolve) => {
+            setTimeout(() => {
+                _contentSwitcher.classList.remove('theme_day_1')
+                resolve();
+            }, 2000);
+    }))})
+
+}
 
 
 
-
-
-          resolve();
-        }, delay);
-      });
-    }
-      */
-
-
-
-    theme = 'night'
-    } else {
+const changeTheme = e => {
+    if (theme === "night") {
+        toDay();
         theme = 'day'
+        console.log('to Day');
+    } else {
+        //toNight();
+        theme = 'night'
+        console.log('to Night');
     }
 
 
