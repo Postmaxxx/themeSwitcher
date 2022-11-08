@@ -4,29 +4,19 @@ body {
 
 $tsWidth: 100px;
 $tsHeight: 50px;
-$tsCircleSize: 20px;
-$tsCirclePosition: 30px;
+$tsCircleSize: 18px;
+$tsCirclePosition: calc($tsWidth / 2 - $tsCircleSize);
 $themeTransition: 1s;
 
 .theme-switcher {
-    position: absolute;
-    left: 600px;
-    top: 200px;
-    width: 300px;
-    height: $tsHeight;
-    border: 1px solid red;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+    position: fixed;
 
     & .content-switcher {
-        width: $tsWidth;
+        /*width: $tsWidth;
         height: $tsHeight;
-        border: 1px solid blue;
-        background-color: #444;
-        border-radius: 50px;
+        border-radius: calc($tsHeight / 2);
         position: relative;
+        overflow: hidden;*/
 
         & > div {
             position: absolute;
@@ -42,7 +32,6 @@ $themeTransition: 1s;
 
             &.night {
                 background-image: url('./bg2.jpg');
-                //background-color: blue;
                 background-size: contain;
                 transition: .5s cubic-bezier(0,1,0,1);
 

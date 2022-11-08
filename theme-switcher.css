@@ -3,23 +3,14 @@ body {
 }
 
 .theme-switcher {
-  position: absolute;
-  left: 600px;
-  top: 200px;
-  width: 300px;
-  height: 50px;
-  border: 1px solid red;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: fixed;
 }
 .theme-switcher .content-switcher {
-  width: 100px;
-  height: 50px;
-  border: 1px solid blue;
-  background-color: #444;
-  border-radius: 50px;
+  /*width: $tsWidth;
+  height: $tsHeight;
+  border-radius: calc($tsHeight / 2);
   position: relative;
+  overflow: hidden;*/
 }
 .theme-switcher .content-switcher > div {
   position: absolute;
@@ -29,8 +20,8 @@ body {
 .theme-switcher .content-switcher > div.day {
   background-image: url("./bg1.jpg");
   background-size: contain;
-  -webkit-clip-path: circle(20px at 30px 50%);
-          clip-path: circle(20px at 30px 50%);
+  -webkit-clip-path: circle(18px at 32px 50%);
+          clip-path: circle(18px at 32px 50%);
   transition: 0.5s cubic-bezier(0, 1, 0, 1);
 }
 .theme-switcher .content-switcher > div.night {
@@ -56,20 +47,20 @@ body {
 .theme-switcher .content-switcher.theme_day .day {
   transition: 0.5s cubic-bezier(0, 1, 0, 1);
   z-index: 900;
-  -webkit-clip-path: circle(1000px at -880px 50%);
-          clip-path: circle(1000px at -880px 50%);
+  -webkit-clip-path: circle(1000px at -882px 50%);
+          clip-path: circle(1000px at -882px 50%);
 }
 .theme-switcher .content-switcher.theme_day .night {
   transition: 0.5s cubic-bezier(0, 1, 0, 1);
   z-index: 1000;
-  -webkit-clip-path: circle(20px at 70px 50%);
-          clip-path: circle(20px at 70px 50%);
+  -webkit-clip-path: circle(18px at 68px 50%);
+          clip-path: circle(18px at 68px 50%);
 }
 .theme-switcher .content-switcher.theme_day_back-1 .day {
   transition: 0s;
   z-index: 900;
-  -webkit-clip-path: circle(1000px at -880px 50%);
-          clip-path: circle(1000px at -880px 50%);
+  -webkit-clip-path: circle(1000px at -882px 50%);
+          clip-path: circle(1000px at -882px 50%);
 }
 .theme-switcher .content-switcher.theme_day_back-1 .night {
   transition: 0.5s cubic-bezier(1, 0, 1, 0);

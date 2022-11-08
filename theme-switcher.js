@@ -4,69 +4,7 @@ const _night = _themeSwitcher.querySelector(".night");
 const _contentSwitcher = _themeSwitcher.querySelector(".content-switcher");
 
 let theme = _contentSwitcher.classList.contains('theme_day') ? 'day' : 'night'
-const themeSwitchSpeed = 2;
-
-const toDay = () => {
-
-    new Promise((resolve) => {
-        setTimeout(() => {
-            _contentSwitcher.classList.add('theme_day_1')
-            resolve();
-        }, 10);
-    })
-    .then(() => {
-        return(new Promise((resolve) => {
-            setTimeout(() => {
-                _contentSwitcher.classList.remove('theme_day_1')
-                _contentSwitcher.classList.add('theme_day_2')
-                resolve();
-            }, 500);
-    }))})
-    .then(() => {
-        return(new Promise((resolve) => {
-            setTimeout(() => {
-                _contentSwitcher.classList.remove('theme_day_2')
-                _contentSwitcher.classList.add('theme_day')
-                resolve();
-            }, 30);
-    }))})
-
-}
-
-
-
-const toNight = () => {
-
-    new Promise((resolve) => {
-        setTimeout(() => {
-            _contentSwitcher.classList.remove('theme_day')
-            _contentSwitcher.classList.add('theme_day_back-1')
-            resolve();
-        }, 0);
-    })
-    .then(() => {
-        return(new Promise((resolve) => {
-            setTimeout(() => {
-                _contentSwitcher.classList.remove('theme_day_back-1')
-                _contentSwitcher.classList.add('theme_day_back-2')
-                resolve();
-            }, 500);
-    }))})
-    .then(() => {
-        return(new Promise((resolve) => {
-            setTimeout(() => {
-                _contentSwitcher.classList.remove('theme_day_back-2')
-                resolve();
-            }, 30);
-    }))})
-
-}
-
-
-
-
-
-
+//const themeSwitchSpeed = 2000;
 
 
 
@@ -80,27 +18,39 @@ const switcher = (classRemove, classAdd, delay) => {
     })
 }
 
-
-
   
-const changeTheme = e => {
+const changeTheme = (themeSwitchSpeed) => {
     if (theme === "night") {
         switcher('', 'theme_day_1', 0)
-        .then(() => switcher('theme_day_1', 'theme_day_2', 500))
+        .then(() => switcher('theme_day_1', 'theme_day_2', themeSwitchSpeed / 4))
         .then(() => switcher('theme_day_2', 'theme_day', 30))
-        //toDay();
         theme = 'day'
     } else {
         switcher('theme_day', 'theme_day_back-1', 0)
-        .then(() => switcher('theme_day_back-1', 'theme_day_back-2', 500))
+        .then(() => switcher('theme_day_back-1', 'theme_day_back-2', themeSwitchSpeed / 4))
         .then(() => switcher('theme_day_back-2', '', 30))
-        //toNight();
         theme = 'night'
     }
 }
 
+const createThemeSwitcher = (width, height, circleSize, duration) => {
+
+    const styleEl = document.createElement('style');
+    document.head.appendChild(styleEl);
+    const styleThemeSwitcher = styleEl.sheet;
+
+    styleThemeSwitcher.insertRule(`
+    .content-switcher{
+        width: ${width}px;
+        height: ${height}px;
+        border-radius: ${height / 2}px;
+        position: relative;
+        overflow: hidden;
+    }
+    `)
+}
 
 
+createThemeSwitcher(100, 50, 18, 2000);
 
-
-_themeSwitcher.addEventListener('click', (e) => changeTheme(e));
+_themeSwitcher.addEventListener('click', () => changeTheme(2000));
