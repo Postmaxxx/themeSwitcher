@@ -4,26 +4,8 @@ const _night = _themeSwitcher.querySelector(".night");
 const _contentSwitcher = _themeSwitcher.querySelector(".content-switcher");
 
 let theme = _contentSwitcher.classList.contains('theme_day') ? 'day' : 'night'
+const themeSwitchSpeed = 2;
 
-/*
-const timeLine = {
-    day: [
-        {
-            duration: 500,
-            class: 'day_1'
-        },
-        {
-            duration: 1000,
-            class: 'day_2'
-        },
-        {
-            duration: 1000,
-            class: 'day_3'
-        }
-    ]
-}
-
-*/
 const toDay = () => {
 
     new Promise((resolve) => {
@@ -82,18 +64,39 @@ const toNight = () => {
 
 
 
+
+
+
+
+
+
+const switcher = (classRemove, classAdd, delay) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            classRemove ? _contentSwitcher.classList.remove(classRemove) : null;
+            classAdd ? _contentSwitcher.classList.add(classAdd) : null
+            resolve();
+        }, delay);
+    })
+}
+
+
+
+  
 const changeTheme = e => {
     if (theme === "night") {
-        toDay();
+        switcher('', 'theme_day_1', 0)
+        .then(() => switcher('theme_day_1', 'theme_day_2', 500))
+        .then(() => switcher('theme_day_2', 'theme_day', 30))
+        //toDay();
         theme = 'day'
-        console.log('to Day');
     } else {
-        toNight();
+        switcher('theme_day', 'theme_day_back-1', 0)
+        .then(() => switcher('theme_day_back-1', 'theme_day_back-2', 500))
+        .then(() => switcher('theme_day_back-2', '', 30))
+        //toNight();
         theme = 'night'
-        console.log('to Night');
     }
-
-
 }
 
 
