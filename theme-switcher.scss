@@ -38,11 +38,14 @@ $themeTransition: 1s;
                 background-image: url('./bg1.jpg');
                 background-size: contain;
                 clip-path: circle($tsCircleSize at $tsCirclePosition 50%);
+                transition: cubic-bezier(1,0,1,.63);
             }
 
             &.night {
                 //display: none;
-                background: blue;
+                background-image: url('./bg2.jpg');
+                background-size: contain;
+                //background-color: blue;
                 //clip-path: circle($tsCircleSize at calc($tsWidth - $tsCirclePosition) 50%);
             }
             
@@ -51,42 +54,39 @@ $themeTransition: 1s;
 
         &.day_1 {
 
-
             & .day {
-                transition: 5s;
+                transition: .5s cubic-bezier(1,0,1,0);
                 clip-path: circle(calc($tsWidth * 10)  at calc( $tsCirclePosition - calc($tsWidth * 10 - $tsCircleSize) ) 50%);
             }
         }
 
         &.day_2 {
             & .day {
-                transition: 0s;
-                z-index: 900;
-                clip-path: circle(calc($tsWidth * 10)  at calc( $tsCirclePosition - calc($tsWidth * 10 - $tsCircleSize) + 70px) 50%);
+                transition: 0s cubic-bezier(1,0,1,0);
+                //z-index: 900;
+                clip-path: circle(calc($tsWidth * 10)  at calc( $tsCirclePosition - calc($tsWidth * 10 - $tsCircleSize) ) 50%);
             }
             
             & .night {
                 display: block;
                 transition: 0s;
-                z-index: 1000;
-                clip-path: circle(calc($tsWidth * 10)  at calc( $tsCirclePosition - calc($tsWidth * 10 - $tsCircleSize)) 50%);
-                transform: matrix(-1,0,0,1,0,0);
+                //z-index: 1000;
+                clip-path: circle(calc($tsWidth * 10)  at calc( $tsCirclePosition + $tsCircleSize + $tsWidth * 10) 50%);
             }
         }
 
         &.day_3 {
             & .day {
-                transition: 1s;
+                transition: .5s;
                 z-index: 900;
                 clip-path: circle(calc($tsWidth * 10)  at calc( $tsCirclePosition - calc($tsWidth * 10 - $tsCircleSize) + 70px) 50%);
             }
             
             & .night {
                 display: block;
-                transition: 1s;
+                transition: .5s;
                 z-index: 1000;
-                clip-path: circle($tsCircleSize at $tsCirclePosition 50%);
-                transform: matrix(-1,0,0,1,0,0);
+                clip-path: circle($tsCircleSize at calc($tsCirclePosition + $tsCircleSize * 2) 50%);
             }
         }
 

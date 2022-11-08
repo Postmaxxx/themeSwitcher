@@ -47,7 +47,7 @@ const toNigth = () => {
                 _contentSwitcher.classList.remove('day_2')
                 _contentSwitcher.classList.add('day_3')
                 resolve();
-            }, 10);
+            }, 1);
     }))})
 
 

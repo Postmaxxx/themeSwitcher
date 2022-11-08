@@ -31,42 +31,40 @@ body {
   background-size: contain;
   -webkit-clip-path: circle(20px at 30px 50%);
           clip-path: circle(20px at 30px 50%);
+  transition: cubic-bezier(1, 0, 1, 0.63);
 }
 .theme-switcher .content-switcher > div.night {
-  background: blue;
+  background-image: url("./bg2.jpg");
+  background-size: contain;
 }
 .theme-switcher .content-switcher.day_1 .day {
-  transition: 5s;
+  transition: 0.5s cubic-bezier(1, 0, 1, 0);
   -webkit-clip-path: circle(1000px at -950px 50%);
           clip-path: circle(1000px at -950px 50%);
 }
 .theme-switcher .content-switcher.day_2 .day {
-  transition: 0s;
-  z-index: 900;
-  -webkit-clip-path: circle(1000px at -880px 50%);
-          clip-path: circle(1000px at -880px 50%);
+  transition: 0s cubic-bezier(1, 0, 1, 0);
+  -webkit-clip-path: circle(1000px at -950px 50%);
+          clip-path: circle(1000px at -950px 50%);
 }
 .theme-switcher .content-switcher.day_2 .night {
   display: block;
   transition: 0s;
-  z-index: 1000;
-  -webkit-clip-path: circle(1000px at -950px 50%);
-          clip-path: circle(1000px at -950px 50%);
-  transform: matrix(-1, 0, 0, 1, 0, 0);
+  -webkit-clip-path: circle(1000px at 1050px 50%);
+          clip-path: circle(1000px at 1050px 50%);
 }
 .theme-switcher .content-switcher.day_3 .day {
-  transition: 1s;
+  transition: 0.5s;
   z-index: 900;
   -webkit-clip-path: circle(1000px at -880px 50%);
           clip-path: circle(1000px at -880px 50%);
 }
 .theme-switcher .content-switcher.day_3 .night {
   display: block;
-  transition: 1s;
+  transition: 0.5s;
   z-index: 1000;
-  -webkit-clip-path: circle(20px at 30px 50%);
-          clip-path: circle(20px at 30px 50%);
-  transform: matrix(-1, 0, 0, 1, 0, 0);
+  -webkit-clip-path: circle(20px at 70px 50%);
+          clip-path: circle(20px at 70px 50%);
 }
 
 /*
