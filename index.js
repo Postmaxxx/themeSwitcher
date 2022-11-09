@@ -1,4 +1,4 @@
 import { createThemeSwitcher } from './theme-switcher.js';
 
 
-createThemeSwitcher(100, 55, 20, 2000, 'day') 
+createThemeSwitcher(70, 40, 14, 2000, 'day') 
