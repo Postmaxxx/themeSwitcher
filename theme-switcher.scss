@@ -98,3 +98,32 @@ $themeTransition: 1s;
 
     }
 }
+
+/*
+.clouds-top {
+    border: 1px solid red;
+    //width: 100px;
+    display: inline-block;
+    height: auto;
+    animation: clouds-top 3s linear infinite;
+    position: absolute;
+
+    .cloud {
+        width: 40px;
+        margin-right: 20px;
+        border: 1px solid blue;
+    }
+}
+*/
+
+
+/*
+
+@keyframes clouds-top {
+    0% { 
+        transform: translateX(0);
+    }
+    100% { 
+        transform: translateX(-100px);
+    }
+}*/
